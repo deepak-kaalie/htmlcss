@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		var amt=0;
+		var bal=0;;
+		function deposit(){
+			document.getElementById('01').style.display="block";
+			document.getElementById('02').style.display="none";
+
+		}
+		function withdraw(){
+			document.getElementById('02').style.display="block";
+			document.getElementById('01').style.display="none";
+
+		}
+		function balance(){
+			document.getElementById('03').style.display="block";
+			document.getElementById('03').innerHTML="Your Current Balance is: " +bal;
+			document.getElementById('01').style.display="none";
+			document.getElementById('02').style.display="none";
+
+
+		}
+		function depfunc(){
+			document.getElementById('03').style.display="block";
+			var num1=document.getElementById('num1').value;
+			bal=parseInt(amt)+parseInt(num1);
+			document.getElementById('03').innerHTML="Your balance is: " +bal;
+			
+		}
+		function withfunc(){
+			document.getElementById('03').style.display="block";
+			var num2=document.getElementById('num2').value;
+			if(num2<bal){
+				bal=parseInt(bal)-parseInt(num2);
+			}
+			else{
+
+			document.getElementById('03').innerHTML="Insufficient Balance";
+		}
+		}
+			
+	</script>
+</head>
+<body>
+	<button id="button" onclick="deposit()">Deposit</button>
+	<br/><br/>
+	<button id="button" onclick="withdraw()">Withdraw</button>
+	<br/><br/>
+	<button id="button" onclick="balance()">Current Balance</button>
+	<br/><br/>
+
+
+
+
+	<div id="01" style="display: none;"> 
+		<input type="value" id="num1">
+		<button id="submit" type="submit" onclick="depfunc()">Submit</button>
+
+	</div>
+	<div id="02" style="display: none;"> 
+		<input type="value" id="num2">
+		<button id="submit" type="submit" onclick="withfunc()">Submit</button>
+
+	</div>
+	<div id="03" style="display: none;">Balance </div>
+
+</body>
+</html>
